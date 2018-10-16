@@ -1,0 +1,18 @@
+//this is only function
+// using c++
+//assume numbers are char not int
+
+
+void combaine( char* a, int m, char* b, int n) //two arrays parameters with it size
+ { int mn=m+n // to find new array size 
+       char* ab = new ab[mn] // dynamic allocation
+
+            for(int i=0; i<=mn; i++) //for new array { 
+                for(int j=0; j<=m; j++) // array a
+                    for(int k=0; k<=n; k++) // array b {
+                       *ab[i]==a[j];
+                       *ab[i+1]==b[k];
+                       i++;// when i=0, i+1=1, this will make next i = 2 and so on.. }
+                    } 
+for(int i=0; i<=mn; i++) 
+cout<<ab[i];  }
