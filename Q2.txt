@@ -1,0 +1,35 @@
+// because you in question said it is "numbers" not intgers so i will assume numbers
+// as a char
+// using C++
+//array of strings  
+
+#include<bits/stdc++.h> 
+using namespace std; 
+  
+void main() 
+{ 
+    // Initialize String Array 
+
+  char numbers[11][2]; //[2] is maximum size of a string in the array
+  char numberswords[11][10];
+    for(int i=0;i<=11; i++) 
+       { cout<< "enter your numbers (from 0 to 10) : " ;
+               cin>>numbers[i]; }
+
+     for(int j=0; j<=11; j++)
+        for( i=0;i<=11; i++) 
+            { switch(numbers[i]) {
+                    case '0' : numberswords[j]=="zero" break();
+                    case '1' : numberswords[j]=="one"  break();
+                    case '2' : numberswords[j]=="two"  break();
+                    case '3' : numberswords[j]=="three" break();
+                    case '4' : numberswords[j]=="four"  break();
+                    case '5' : numberswords[j]=="five"  break();
+                    case '6' : numberswords[j]=="six"   break();
+                    case '7' : numberswords[j]=="seven" break();
+                    case '8' : numberswords[j]=="eight" break();
+                    case '9' : numberswords[j]=="nine"  break();
+                    case '10' : numberswords[j]=="ten"  break();
+} }
+for( i=0;i<=11; i++) 
+cout<<numberstowords[i]; }
