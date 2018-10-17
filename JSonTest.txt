@@ -1,4 +1,0 @@
-import json
-import requests
-response = requests.get("https://jsonplaceholder.typicode.com/posts")
-posts = json.loads(response.text)
