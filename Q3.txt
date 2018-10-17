@@ -34,3 +34,19 @@ for($i=1;$i<$n;$i++) /for loop to compare
 }
 echo "<br>".$oldest.' '.$name_old.'  '.$year_old.'  '.$movie_old; / print
 
+ for($i=0;$i<$n;$i++)
+{
+    $str=$movie[$i] ;
+     if(strpos($str, ',') == true)
+    {$movie=$movie[$i];$name_more=$name[$i];}
+ }
+echo "<br>".$name_more.' '.$movie; /print
+3-  for($i=0;$i<$n;$i++)
+{
+    $str=$movie[$i] ;  /start to compare
+     if(strpos($str, ',') == true) /condition if there is , that means there is another movie
+    {$movie=$movie[$i];$name_more=$name[$i];} 
+ }
+echo "<br>".$name_more.' '.$movie; /print result
+
+
