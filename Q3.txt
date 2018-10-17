@@ -1,0 +1,36 @@
+// using php
+
+$fh=fopen('oscar.csv','r') or die('ERR'); / opem csv file
+$n=0; /count
+global $index ,$year,$age,$name,$temp; /csv fields
+while ($data = fgetcsv($fh,1000,',')) {
+    $index[$n] = $data[0]; 
+    $year[$n] = $data[1];
+    $age[$n] = $data[2];
+    $name[$n] = $data[3];
+
+    $movie[$n] = $data[4];
+     $n++; /count to read contect
+}
+$nn=0;
+for($j=0;$j<$n-1;$j++) / for loop for checking conditon
+{
+    $m=0;  /counter
+    for ($i = $j + 1; $i < $n; $i++) / loop to compare between names itself
+        if ($name[$j] == $name[$i])
+            $m++; 
+ 
+    if($m>$nn)
+    $temp=$name[$j];
+    $nn=$m; /count for repated name 
+}
+echo $temp; /print
+
+$oldest=$age[0]; / assume oldest is the first one in row
+for($i=1;$i<$n;$i++) /for loop to compare
+{
+    if($age[$i]>$oldest) /if the next is smaller then it is the oldest 
+    {  $oldest=$age[$i]; $name_old=$name[$i]; $year_old=$year[$i]; $movie_old=$movie[$i]; }
+}
+echo "<br>".$oldest.' '.$name_old.'  '.$year_old.'  '.$movie_old; / print
+

@@ -1,0 +1,44 @@
+<?php
+
+
+
+
+$url = 'http://jsonplaceholder.typicode.com/posts?userId=2'; /get info from link posts
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_TIMEOUT, 5); // this 
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5); // is
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // fetch
+$json = curl_exec($ch);  //api
+if(curl_error($ch)) { 
+echo 'error:' . curl_error($ch); 
+};
+curl_close($ch);
+
+$data = json_decode($json,true); / decode json
+
+foreach($data as $da)  //for loop 
+{
+$postId=$da['id'];
+echo'<b>Post '.$postId.' : </b>';
+echo $postId.'<br>'.$da['title'].'<br>'.$da['body'].'<br>';
+echo'<br>';
+$url = "http://jsonplaceholder.typicode.com/comments?postId=$postId";
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_TIMEOUT, 5); / this is api fetch
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$json = curl_exec($ch); 
+if(curl_error($ch)) { 
+echo 'error:' . curl_error($ch); 
+};
+curl_close($ch); 
+$data1 = json_decode($json,true);
+echo '<b>Comments for postId '.$postId." :</b><br>";
+foreach($data1 as $da1)
+{
+echo $da1['id'].'<br>'.$da1['name'].'<br>'.$da1['email'].'<br>'.$da1['body'].'<br>'; / print comment with posts
+}
+
+}
+ 
+?>
